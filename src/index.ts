@@ -39,7 +39,7 @@ const thinkMessage = async () => {
     let parsedMessage = await generateMessage(lastMessages);
 
     if (parsedMessage.parsed.toUpperCase().trim().startsWith("DO_NOT_RESPOND"))
-        return console.debug("FOUND DO_NOT_RESPOND");
+        return console.debug("FOUND DNR COMMAND:", parsedMessage.parsed);
 
     await bot.sendTyping();
 
@@ -47,7 +47,7 @@ const thinkMessage = async () => {
         switch (action.name) {
             case "PICTURE":
                 console.debug("FEATURE", "Generating picture", action.value);
-                parsedMessage.parsed += " " + generateImage(action.value);
+                parsedMessage.parsed += " " + (await generateImage(action.value));
                 break;
 
             case "EMOTION":
