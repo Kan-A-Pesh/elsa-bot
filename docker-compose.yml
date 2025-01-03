@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      target: production
+    environment:
+      - CHANNEL_ID=${CHANNEL_ID}
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PERSONALITY=${PERSONALITY}
+      - MIN_WAIT_TIME=${MIN_WAIT_TIME}
+      - MAX_WAIT_TIME=${MAX_WAIT_TIME}
+      - MAX_WAIT_MESSAGES=${MAX_WAIT_MESSAGES}
+      - MAX_CONVERSATION_TIME=${MAX_CONVERSATION_TIME}
