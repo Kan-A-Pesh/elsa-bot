@@ -18,7 +18,7 @@ const sendMessage = async () => {
     const lastMessages = await bot.getLastMessages();
     let generatedMessage = await generateMessage(lastMessages);
 
-    if (generatedMessage === "NOT INTERESTED") return console.debug("NOT INTERESTED");
+    if (generatedMessage.toUpperCase().trim() === "NOT INTERESTED") return console.debug("NOT INTERESTED");
 
     lastMessages.forEach(
         (message) =>
